@@ -1,6 +1,7 @@
+#!/usr/bin/env python3
+
 import yaml
 import subprocess
-import pathlib
 from pyfzf.pyfzf import FzfPrompt
 import argh
 
@@ -55,6 +56,7 @@ def main(cmd_config):
     print("Running command: {}".format(" ".join(cmd)))
     # Run the command
     subprocess.run(cmd, cwd=working_dir)
+    print("Finished command: {}".format(" ".join(cmd)))
 
 
 if __name__ == "__main__":
