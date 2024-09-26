@@ -29,8 +29,10 @@ spec:
 ```bash
 python3 -m venv env
 ./env/bin/pip install pyfzf pyyaml argh
+chmod a+x ye.py
+source env/bin/activate
 ```
 
 ```bash
-./env/bin/python3 <yaml_conf_path>
+./ye.py <yaml_conf_path>
 ```
