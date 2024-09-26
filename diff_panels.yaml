@@ -1,0 +1,33 @@
+kind: ye-command
+metadata:
+  name: diff-panels
+  description: diff-panels diffs local jsonnet and remote grafana panels
+spec:
+  command:
+    interpreter: env/bin/python3
+    command: diff_panels.py
+    workingDir: /home/dvolk/stuff/code/cw-dashboards-as-code
+    args:
+      - name: sub-command
+        options:
+          - 'cmd-diff'
+          - 'cmd-diff-with-src-watch'
+      - name: local dashboard uid
+        argument: '--local-dashboard-uid'
+        options:
+          - 'bX7jn6dZk'
+      - name: remote dashboard uid
+        argument: '--remote-dashboard-uid'
+        options:
+          - 'bX7jn6dZk'
+      - name: local panel title
+        argument: '--local-panel-title'
+      - name: remote panel title
+        argument: '--remote-panel-title'
+        options:
+          - 'SUNK Version'
+      - name: diff command
+        argument: '--cmd'
+        options:
+          - 'diff -C 2'
+          - 'meld'

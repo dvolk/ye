@@ -1,0 +1,16 @@
+kind: ye-command
+metadata:
+  name: rsync
+spec:
+  command:
+    command: /usr/bin/rsync
+    workingDir: /home/dvolk
+    args:
+      - name: options
+        options:
+          - '-aXxv'
+          - '-aXxv --delete'
+      - name: source
+      - name: destination
+        options:
+          - '/tmp/backups'
