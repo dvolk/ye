@@ -50,5 +50,5 @@ env/bin/pip install pyfzf pyyaml argh
 ```
 
 ```bash
-env/bin/python ye.py test.py
+env/bin/python ye.py test.yaml
 ```

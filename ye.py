@@ -2,7 +2,6 @@
 
 import yaml
 import subprocess
-import shlex
 
 from pyfzf.pyfzf import FzfPrompt
 import argh
@@ -14,12 +13,12 @@ def main(cmd_config):
         config = yaml.safe_load(f)
 
     spec = config["spec"]
-    exec = spec["exec"]
+    exec_cfg = spec["exec"]
     args = spec.get("args", [])
 
-    interpreter = exec.get("interpreter", "")
-    command = exec.get("command", "")
-    working_dir = exec.get("workingDir", ".")
+    interpreter = exec_cfg.get("interpreter", "")
+    command = exec_cfg.get("command", "")
+    working_dir = exec_cfg.get("workingDir", ".")
 
     cmd_args = []
 
@@ -59,7 +58,7 @@ def main(cmd_config):
 
     print(f"Running command: {cmd}")
     # Run the command
-    subprocess.run(cmd, cwd=working_dir)
+    subprocess.run(cmd, cwd=working_dir, check=True)
 
 
 if __name__ == "__main__":
