@@ -1,12 +1,3 @@
-# ye
-
-ye (yaml execute) runs cli commands based on a YAML config file.
-
-The selected options are passed to bash for expansion. Options with eg. space characters should be escaped with `\`.
-
-for example:
-
-```yaml
 kind: ye-command
 metadata:
   name: ls
@@ -38,17 +29,3 @@ spec:
     - name: braces
       options:
         - '/etc/{hosts,crontab}'
-```
-
-## Setup & run
-
-```bash
-sudo apt update
-sudo apt install fzf
-python3 -m venv env
-env/bin/pip install pyfzf pyyaml argh
-```
-
-```bash
-env/bin/python ye.py test.py
-```

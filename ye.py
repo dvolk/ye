@@ -2,6 +2,8 @@
 
 import yaml
 import subprocess
+import shlex
+
 from pyfzf.pyfzf import FzfPrompt
 import argh
 
@@ -12,12 +14,12 @@ def main(cmd_config):
         config = yaml.safe_load(f)
 
     spec = config["spec"]
-    command_spec = spec["command"]
+    exec = spec["exec"]
+    args = spec.get("args", [])
 
-    interpreter = command_spec.get("interpreter", "")
-    command = command_spec.get("command", "")
-    working_dir = command_spec.get("workingDir", ".")
-    args = command_spec.get("args", [])
+    interpreter = exec.get("interpreter", "")
+    command = exec.get("command", "")
+    working_dir = exec.get("workingDir", ".")
 
     cmd_args = []
 
@@ -43,9 +45,8 @@ def main(cmd_config):
             choice = input(f"Enter value for {name}: ")
 
         if argument:
-            cmd_args.extend([argument, choice])
-        else:
-            cmd_args.append(choice)
+            cmd_args.append(argument)
+        cmd_args.append(choice)
 
     # Build the command
     if interpreter:
@@ -53,10 +54,12 @@ def main(cmd_config):
     else:
         cmd = [command] + cmd_args
 
-    print("Running command: {}".format(" ".join(cmd)))
+    print(cmd)
+    cmd = ["bash", "-c", " ".join(cmd)]
+
+    print(f"Running command: {cmd}")
     # Run the command
     subprocess.run(cmd, cwd=working_dir)
-    print("Finished command: {}".format(" ".join(cmd)))
 
 
 if __name__ == "__main__":
