@@ -7,13 +7,13 @@ name = "ye"
 version = "0.1.0"
 description = "ye (yaml execute) runs cli commands based on a YAML config file"
 readme = "README.md"
-authors = [{name="Unknown"}]
-license = {text="MIT"}
+authors = [{name="dvolk"}]
+license = {text="GPL3"}
 requires-python = ">=3.8"
 dependencies = [
-    "PyYAML",
-    "pyfzf",
-    "argh"
+    "PyYAML==6.0.2",
+    "pyfzf===0.3.1",
+    "argh==0.31.3"
 ]
 
 [project.scripts]

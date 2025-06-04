@@ -44,11 +44,10 @@ spec:
 
 ```bash
 sudo apt update
-sudo apt install fzf
+sudo apt install python3-pip fzf
 
 python3 -m venv env
-env/bin/pip install pyfzf pyyaml argh
-env/bin/pip install -e .
+env/bin/pip install git+https://github.com/dvolk/ye
 ```
 
 ```bash
