@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ye"
+version = "0.1.0"
+description = "ye (yaml execute) runs cli commands based on a YAML config file"
+readme = "README.md"
+authors = [{name="Unknown"}]
+license = {text="MIT"}
+requires-python = ">=3.8"
+dependencies = [
+    "PyYAML",
+    "pyfzf",
+    "argh"
+]
+
+[project.scripts]
+ye = "ye.ye:main"
