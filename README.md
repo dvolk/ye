@@ -26,9 +26,18 @@ spec:
 
 ## Setup & run
 
+Install the system dependency for fuzzy finding:
+
+```bash
+sudo apt-get install -y fzf
+```
+
+Set up a virtual environment and install Python packages from
+`requirements.txt`:
+
 ```bash
 python3 -m venv env
-./env/bin/pip install pyfzf pyyaml argh
+./env/bin/pip install -r requirements.txt
 chmod a+x ye.py
 source env/bin/activate
 ```
