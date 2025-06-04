@@ -61,5 +61,9 @@ def main(cmd_config):
     subprocess.run(cmd, cwd=working_dir, check=True)
 
 
-if __name__ == "__main__":
+def cli():
     argh.dispatch_command(main)
+
+
+if __name__ == "__main__":
+    cli()

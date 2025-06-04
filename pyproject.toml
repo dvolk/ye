@@ -17,4 +17,4 @@ dependencies = [
 ]
 
 [project.scripts]
-ye = "ye.ye:main"
+ye = "ye.ye:cli"
