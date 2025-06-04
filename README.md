@@ -45,11 +45,12 @@ spec:
 ```bash
 sudo apt update
 sudo apt install fzf
+
 python3 -m venv env
 env/bin/pip install pyfzf pyyaml argh
+env/bin/pip install -e .
 ```
 
 ```bash
-env/bin/pip install -e .
 env/bin/ye test.yaml
 ```
